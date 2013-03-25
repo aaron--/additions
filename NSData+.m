@@ -57,7 +57,7 @@
 {
   UInt8     digest[CC_MD5_DIGEST_LENGTH];
   
-  CC_MD5([self bytes], (UInt)[self length], digest);
+  CC_MD5([self bytes], (unsigned int)[self length], digest);
   return [NSData dataWithBytes:digest length:CC_MD5_DIGEST_LENGTH];
 }
 
@@ -70,7 +70,7 @@
 {
   UInt8     digest[CC_SHA1_DIGEST_LENGTH];
   
-  CC_SHA1([self bytes], (UInt)[self length], digest);
+  CC_SHA1([self bytes], (unsigned int)[self length], digest);
   return [NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];
 }
 
@@ -80,8 +80,8 @@
   NSData*   keyData;
   
   keyData = [key dataUsingEncoding:NSUTF8StringEncoding];
-  CCHmac(kCCHmacAlgSHA1, [keyData bytes], (UInt)[keyData length],
-                         [self bytes], (UInt)[self length], digest);
+  CCHmac(kCCHmacAlgSHA1, [keyData bytes], (unsigned int)[keyData length],
+                         [self bytes], (unsigned int)[self length], digest);
   return [NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];
 }
 

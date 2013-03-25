@@ -14,7 +14,10 @@
 #import "NSData+.h"
 #import "NSDictionary+.h"
 #import "NSString+.h"
-#import "NSView+.h"
 #import "NSImage+.h"
-#import "NSWindow+.h"
 #import "NSObject+.h"
+
+#if !TARGET_OS_IPHONE
+#import "NSView+.h"
+#import "NSWindow+.h"
+#endif

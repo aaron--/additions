@@ -6,6 +6,7 @@
 
 #import "NSImage+.h"
 
+#if !TARGET_OS_IPHONE
 @implementation CGImageRefToNSImageTransformer
 
 + (Class)transformedValueClass
@@ -24,3 +25,4 @@
 }
 
 @end
+#endif
