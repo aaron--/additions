@@ -11,6 +11,7 @@
 //
 
 #import "Base64+.h"
+#import "NSArray+.h"
 #import "NSData+.h"
 #import "NSDictionary+.h"
 #import "NSString+.h"
