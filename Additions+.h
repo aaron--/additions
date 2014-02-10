@@ -13,6 +13,7 @@
 #import "Base64+.h"
 #import "NSArray+.h"
 #import "NSData+.h"
+#import "NSDate+.h"
 #import "NSDictionary+.h"
 #import "NSString+.h"
 #import "NSImage+.h"
