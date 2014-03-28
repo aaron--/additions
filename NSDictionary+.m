@@ -8,6 +8,17 @@
 
 @implementation NSDictionary (Additions)
 
+- (BOOL)observedValueInitial
+{
+  id  oldValue;
+  id  newValue;
+  
+  // If there's an old value, it's not inital
+  oldValue   = [self objectForKey:NSKeyValueChangeOldKey];
+  newValue   = [self objectForKey:NSKeyValueChangeNewKey];
+  return !oldValue && newValue;
+}
+
 - (BOOL)observedValueChanged
 {
   id  oldValue;
