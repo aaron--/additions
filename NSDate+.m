@@ -80,4 +80,40 @@
 	return [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
 }
 
++ (NSDate *)dateFromRFC1123String:(NSString*)rfc1123String
+{
+  return [[NSDate rfc1123ParseFormatter] dateFromString:rfc1123String];
+}
+
+- (NSString*)RFC1123String
+{
+  return [[NSDate rfc1123EmitFormatter] stringFromDate:self];
+}
+
++ (NSDateFormatter*)rfc1123ParseFormatter
+{
+  static NSDateFormatter*     sRFC1123Format;
+
+  if(sRFC1123Format == nil) {
+    sRFC1123Format = [NSDateFormatter new];
+    sRFC1123Format.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    sRFC1123Format.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];;
+    sRFC1123Format.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss z";
+  }
+  return sRFC1123Format;
+}
+
++ (NSDateFormatter*)rfc1123EmitFormatter
+{
+  static NSDateFormatter*     sRFC1123Format;
+  
+  if(sRFC1123Format == nil) {
+    sRFC1123Format = [NSDateFormatter new];
+    sRFC1123Format.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    sRFC1123Format.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];;
+    sRFC1123Format.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss 'GMT'";
+  }
+  return sRFC1123Format;
+}
+
 @end
